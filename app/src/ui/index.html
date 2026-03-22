@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Desktop</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./renderer.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="topbar__left">
+          <div class="menu-shell">
+            <button
+              class="hamburger"
+              id="menu-toggle"
+              type="button"
+              aria-label="Application menu"
+              aria-expanded="false"
+              aria-controls="app-menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div class="app-menu app-menu--hidden" id="app-menu" role="menu">
+              <button type="button" role="menuitem">Settings</button>
+              <button type="button" role="menuitem">About</button>
+              <button type="button" role="menuitem" id="quit-action">Quit</button>
+            </div>
+          </div>
+          <div>
+            <p class="eyebrow">Local Desktop Prototype</p>
+            <h1>OpenClaw</h1>
+          </div>
+        </div>
+        <div class="status">
+          <span class="status__dot"></span>
+          runtime not connected
+        </div>
+      </header>
+
+      <main class="chat-layout">
+        <section class="chat-surface">
+          <div class="chat-surface__intro">
+            <p class="section-label">Chat Surface</p>
+            <h2>Desktop shell only</h2>
+            <p>
+              This UI is intentionally static. It exists to show the initial desktop
+              shape and the future seam to a local runtime.
+            </p>
+          </div>
+
+          <div class="message message--system">
+            <p class="message__author">System</p>
+            <p>
+              No runtime is attached. Future OpenClaw integration will sit behind
+              the local gateway and provider seams.
+            </p>
+          </div>
+        </section>
+
+        <footer class="composer">
+          <input
+            type="text"
+            placeholder="Message OpenClaw (not wired yet)"
+            aria-label="Message input"
+          />
+          <button type="button">Send</button>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

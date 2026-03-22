@@ -1,0 +1,13 @@
+{
+  "name": "openclaw-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bare-minimum local OpenClaw desktop/appliance prototype skeleton.",
+  "main": "app/src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}

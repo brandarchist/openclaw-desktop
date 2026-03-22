@@ -1,0 +1,248 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1016;
+  --panel: #151a23;
+  --panel-strong: #1c2430;
+  --border: rgba(146, 165, 194, 0.18);
+  --text: #f3f5f8;
+  --muted: #95a1b5;
+  --accent: #83d6b7;
+  --warning: #f0be7a;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(131, 214, 183, 0.12), transparent 26%),
+    linear-gradient(180deg, #111520 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 12, 18, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-shell {
+  position: relative;
+}
+
+.hamburger {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.app-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(15, 19, 27, 0.98);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 4px;
+}
+
+.app-menu--hidden {
+  display: none;
+}
+
+.app-menu button {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.app-menu button:hover {
+  background: rgba(131, 214, 183, 0.12);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.eyebrow,
+.section-label,
+.message__author {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(240, 190, 122, 0.25);
+  border-radius: 999px;
+  background: rgba(240, 190, 122, 0.08);
+  color: #f4d3a4;
+  font-size: 13px;
+}
+
+.status__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--warning);
+}
+
+.chat-layout {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 32px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 20px;
+}
+
+.chat-surface,
+.composer {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(28, 36, 48, 0.95), rgba(21, 26, 35, 0.95));
+  box-shadow: var(--shadow);
+}
+
+.chat-surface {
+  padding: 28px;
+  display: grid;
+  align-content: start;
+  gap: 28px;
+}
+
+.chat-surface__intro {
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+}
+
+.chat-surface__intro p:last-child,
+.message p:last-child {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.message {
+  max-width: 720px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(13, 16, 22, 0.7);
+  display: grid;
+  gap: 8px;
+}
+
+.composer {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+}
+
+.composer input {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(8, 10, 15, 0.8);
+  color: var(--text);
+}
+
+.composer button {
+  padding: 0 22px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #0b1713;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .chat-layout {
+    width: min(100%, calc(100% - 20px));
+    padding-top: 20px;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .composer button {
+    min-height: 52px;
+  }
+}
